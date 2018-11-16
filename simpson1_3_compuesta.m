@@ -12,20 +12,46 @@ aprox = 0;
 h = (b-a)/n;
 s = zeros(n);
 fprintf('valor de h:%.2f \n',h);
+
+temp_a = a;
 %fprintf('|\t%d\t|\t%.2f\t|\t%.2f\t|\n',x,a,f(a));
 for x=1:n
     if(x~=1)
-        s(x) = f(a+h);     
+        s(x) = f(temp_a+h);     
+        temp_a = temp_a+h;
     else
-        s(x) = f(a);     
+        s(x) = f(temp_a);     
     end
-   a = a+h;
+   
     %aprox = aprox +(h/3) *f(f(a)+4*f(a+h)+f(a+2*h));
     %fprintf('|\t%d\t|\t%.2f\t|\t%.2f\t|\n',x,a+h,f(a+h));
     %a=a+2*h;    
 end
-
-for x=1:n
-    
+%suma de pares 
+sumPar = 0;
+for x=2:2:n   
+    sumPar = sumPar + f(x);    
+    fprintf('indice:%d resultado sumatoria fx:%.2f\n',x,sumPar);
 end
-%fprintf('El valor aproximado de la integral es: %f',aprox);
+sumImpar = 0;
+%suma de pares
+for x=3:2:n-1   
+    sumImpar = sumImpar + f(x);    
+    fprintf('indice:%d resultado sumatoria fx:%.2f\n',x,sumImpar);
+end
+
+%Crear tabla 
+temp_a = a;
+for x=1:n
+    if(x~=1)
+        fprintf('|\t%d\t|\t%.2f\t|\t%.2f\t|\n',x,temp_a+h,s(x));
+        temp_a = temp_a+h;
+    else
+        fprintf('|\t%d\t|\t%.2f\t|\t%.2f\t|\n',x,temp_a,s(x));
+    end    
+end
+fprintf('|\t%d\t|\t%.2f\t|\t%.2f\t|\n',n+1,b,f(b));
+%aplicando la formula 1/3 compuesta
+
+aprox = (h/3) +4*(sumPar)+2*(sumImpar)+f(n+1);
+fprintf('El valor aproximado de la integral es: %f',aprox);
