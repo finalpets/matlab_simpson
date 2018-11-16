@@ -29,14 +29,14 @@ for x=1:n
 end
 %suma de pares 
 sumPar = 0;
-for x=2:2:n   
+for x=3:2:n-1   
     sumPar = sumPar + s(x);    
     fprintf('valor fx:%.2f\n',s(x));
     fprintf('indice:%d resultado sumatoria fx:%.2f\n',x,sumPar);
 end
 sumImpar = 0;
 %suma de pares
-for x=3:2:n-1   
+for x=2:2:n   
     sumImpar = sumImpar + s(x);    
     fprintf('valor fx:%.2f\n',s(x));
     fprintf('indice:%d resultado sumatoria fx:%.2f\n',x,sumImpar);
@@ -55,5 +55,5 @@ end
 fprintf('|\t%d\t|\t%.2f\t|\t%.2f\t|\n',n+1,b,f(b));
 %aplicando la formula 1/3 compuesta
 
-aprox = (h/3)*(s(1)+4*(sumPar)+2*(sumImpar)+f(b));
+aprox = (h/3)*(f(a)+4*(sumImpar)+2*(sumPar)+f(b));
 fprintf('El valor aproximado de la integral es: %f',aprox);
