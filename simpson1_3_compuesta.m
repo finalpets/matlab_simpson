@@ -1,6 +1,6 @@
 %Programa simpson 1/3
 clc;%limpia la pantalla
-fprintf('Proyecto Simpson 1/3 Simple \n');
+fprintf('Proyecto Simpson 1/3 Compuesta \n');
 funcion = input('Ingrese la funcion:','s'); %el parametro 's' es para que no evalue la entrada
 
 f = inline(funcion);%convierte la entrada en una funcion para poderla evaluar
@@ -30,13 +30,15 @@ end
 %suma de pares 
 sumPar = 0;
 for x=2:2:n   
-    sumPar = sumPar + f(x);    
+    sumPar = sumPar + s(x);    
+    fprintf('valor fx:%.2f\n',s(x));
     fprintf('indice:%d resultado sumatoria fx:%.2f\n',x,sumPar);
 end
 sumImpar = 0;
 %suma de pares
 for x=3:2:n-1   
-    sumImpar = sumImpar + f(x);    
+    sumImpar = sumImpar + s(x);    
+    fprintf('valor fx:%.2f\n',s(x));
     fprintf('indice:%d resultado sumatoria fx:%.2f\n',x,sumImpar);
 end
 
@@ -53,5 +55,5 @@ end
 fprintf('|\t%d\t|\t%.2f\t|\t%.2f\t|\n',n+1,b,f(b));
 %aplicando la formula 1/3 compuesta
 
-aprox = (h/3) +4*(sumPar)+2*(sumImpar)+f(n+1);
+aprox = (h/3)*(s(1)+4*(sumPar)+2*(sumImpar)+f(b));
 fprintf('El valor aproximado de la integral es: %f',aprox);
