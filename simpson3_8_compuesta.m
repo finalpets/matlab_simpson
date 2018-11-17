@@ -7,36 +7,32 @@ f = inline(funcion);%convierte la entrada en una funcion para poderla evaluar
 a = input('Ingrese el numero inferior de la integral:');
 b = input('Ingrese el numero superior de la integral:');
 n = input('Ingrese la cantidad de veces que de sea aplicar el metodo Numero ImPar:');
-%n = 2*cantidad;
-aprox = 0;
-h = (b-a)/n;
-s = zeros(n);
+
+h = (b-a)/n; % calculamos el valor de h donde n tiene que ser impar
+s = zeros(n); % se reserva en memoria el espacio del arreglo dependiendo el tamaño de la n
 fprintf('valor de h:%.2f \n',h);
 
-temp_a = a;
-%fprintf('|\t%d\t|\t%.2f\t|\t%.2f\t|\n',x,a,f(a));
+temp_a = a;%se guarda el valor de a en un temporal porque se requiere cambiar su valor para no afectar el original
+
 for x=0:n
-    if(x~=0)
-        s(x+1) = f(temp_a+h);     
+    if(x~=0)%preguntamos si el valor de x es diferente a 0 y si es diferente entonces le sumamos el valor de h
+        s(x+1) = f(temp_a+h);%sacamos la evaluacion de las funciones de todos los puntos y los almacenamos en S     
         temp_a = temp_a+h;
     else
-        s(x+1) = f(temp_a);     
+        s(x+1) = f(temp_a);% sacamos la funcion del primer valor sin sumarle la h
     end
    
-    %aprox = aprox +(h/3) *f(f(a)+4*f(a+h)+f(a+2*h));
-    %fprintf('|\t%d\t|\t%.2f\t|\t%.2f\t|\n',x,a+h,f(a+h));
-    %a=a+2*h;    
 end
 %suma_1
 suma_1 = 0;
-for x=1:3:n-2   
+for x=1:3:n-2 %ciclo desde x=1 con imcrementos de 3 en 3    
     suma_1 = suma_1 + s(x+1);    
     fprintf('valor fx:%.2f\n',s(x+1));
     fprintf('indice:%d resultado sumatoria fx:%.2f\n',x,suma_1);
 end
 suma_2 = 0;
 %suma_2
-for x=2:3:n-1   
+for x=2:3:n-1  %ciclo desde x=2 con imcrementos de 3 en 3     
     suma_2 = suma_2 + s(x+1);    
     fprintf('valor fx:%.2f\n',s(x+1));
     fprintf('indice:%d resultado sumatoria fx:%.2f\n',x,suma_2);
@@ -44,7 +40,7 @@ end
 
 %suma_3
 suma_3 = 0;
-for x=3:3:n-3   
+for x=3:3:n-3  %ciclo desde x=3 con imcrementos de 3 en 3   
     suma_3 = suma_3 + s(x+1);    
     fprintf('valor fx:%.2f\n',s(x+1));
     fprintf('indice:%d resultado sumatoria fx:%.2f\n',x,suma_3);
@@ -60,8 +56,7 @@ for x=0:n
         fprintf('|\t%d\t|\t%.2f\t|\t%.2f\t|\n',x,temp_a,s(x+1));
     end    
 end
-%fprintf('|\t%d\t|\t%.2f\t|\t%.2f\t|\n',n+1,b,f(b));
 %aplicando la formula 1/3 compuesta
 
-aprox = (h/3)*(f(a)+3*(suma_1)+3*(suma_2)+2*(suma_3)+f(b));
+aprox = (3*h/8)*(f(a)+3*(suma_1)+3*(suma_2)+2*(suma_3)+f(b));
 fprintf('El valor aproximado de la integral es: %f',aprox);
