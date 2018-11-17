@@ -29,16 +29,12 @@ sumImpar = 0; %se iguala a 0 para no generar errores en la sumatoria
 %suma de Impares
 for x=1:2:n  %ciclo for desde x=1 hasta n sumando de 2 en 2 ejemplo, 1,3,5,7 
     sumImpar = sumImpar + s(x+1); %vamos guardando la sumatoriai de todos los impares de la Y ejem:fx1,fx3,fx5  
-    fprintf('valor fx:%.2f\n',s(x+1));% imprimimos el valor de fx
-    fprintf('indice:%d resultado sumatoria fx:%.2f\n',x,sumImpar); % se imprime inidice y sumatoria
 end
 
 %suma de pares 
 sumPar = 0; %se iguala a 0 para no generar errores en la sumatoria
 for x=2:2:n-1   %ciclo for desde x=2 hasta n sumando de 2 en 2 ejemplo, 2,4,6,8 
     sumPar = sumPar + s(x+1);    %vamos guardando la sumatoriai de todos los pares de la Y ejem: fx2,fx4,fx6  
-    fprintf('valor fx:%.2f\n',s(x+1));% imprimimos el valor de fx
-    fprintf('indice:%d resultado sumatoria fx:%.2f\n',x,sumPar);
 end
 
 %Crear tabla 

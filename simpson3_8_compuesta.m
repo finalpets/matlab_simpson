@@ -26,24 +26,18 @@ end
 %suma_1
 suma_1 = 0;
 for x=1:3:n-2 %ciclo desde x=1 con imcrementos de 3 en 3    
-    suma_1 = suma_1 + s(x+1);    
-    fprintf('valor fx:%.2f\n',s(x+1));
-    fprintf('indice:%d resultado sumatoria fx:%.2f\n',x,suma_1);
+    suma_1 = suma_1 + s(x+1);
 end
 suma_2 = 0;
 %suma_2
 for x=2:3:n-1  %ciclo desde x=2 con imcrementos de 3 en 3     
     suma_2 = suma_2 + s(x+1);    
-    fprintf('valor fx:%.2f\n',s(x+1));
-    fprintf('indice:%d resultado sumatoria fx:%.2f\n',x,suma_2);
 end
 
 %suma_3
 suma_3 = 0;
 for x=3:3:n-3  %ciclo desde x=3 con imcrementos de 3 en 3   
     suma_3 = suma_3 + s(x+1);    
-    fprintf('valor fx:%.2f\n',s(x+1));
-    fprintf('indice:%d resultado sumatoria fx:%.2f\n',x,suma_3);
 end
 
 %Crear tabla 
