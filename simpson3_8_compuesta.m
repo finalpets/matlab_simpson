@@ -48,12 +48,12 @@ end
 
 %Crear tabla 
 temp_a = a;
-for x=0:n
-    if(x~=0)
+for x=0:n %imprimos la tabla con los valores de a hasta b con todos sus intervalos
+    if(x~=0)%mientras el valor sea diferente de 0 seguiremos sumandole h
         fprintf('|\t%d\t|\t%.2f\t|\t%.2f\t|\n',x,temp_a+h,s(x+1));
         temp_a = temp_a+h;
     else
-        fprintf('|\t%d\t|\t%.2f\t|\t%.2f\t|\n',x,temp_a,s(x+1));
+        fprintf('|\t%d\t|\t%.2f\t|\t%.2f\t|\n',x,temp_a,s(x+1));% imprimos el valor de a en la tabla
     end    
 end
 %aplicando la formula 1/3 compuesta
