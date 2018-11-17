@@ -15,7 +15,7 @@ fprintf('valor de h:%.2f \n',h);
 
 temp_a = a; %se guarda el valor de a en un temporal porque se requiere cambiar su valor para no afectar el original
 
-for x=0:n
+for x=0:n %ciclo for desde x=0 hasta n de 1 en 1
     if(x~=0) %preguntamos si el valor de x es diferente a 0 y si es diferente entonces le sumamos el valor de h
         s(x+1) = f(temp_a+h);     
         temp_a = temp_a+h;
